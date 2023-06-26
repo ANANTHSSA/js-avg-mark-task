@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js mark task</title>
+</head>
+<!-- <body> -->
+        <!-- <button id="btn" onclick="red()">click</button> -->
+    <!-- <div class="result"></div> -->
+	<!-- const tasks =[{'name':'Write for Evato tuts','duration':120},{'name':'Work Out','duration':60},{'name':'Procrastinate on Dulingo','duration':240}]; -->
+    <!-- <script> -->
+    <!-- let mark1=document.createElement('input'); -->
+    <!-- mark1.setAttribute('type','number'); -->
+    <!-- document.body.appendChild(mark1); -->
+    <!-- let mark2=document.createElement('input'); -->
+    <!-- mark2.setAttribute('type','number'); -->
+    <!-- document.body.appendChild(mark2); -->
+    <!-- let mark3=document.createElement('input'); -->
+    <!-- mark3.setAttribute('type','number'); -->
+    <!-- document.body.appendChild(mark3); -->
+    <!-- let mark4=document.createElement('input'); -->
+    <!-- mark4.setAttribute('type','number'); -->
+    <!-- document.body.appendChild(mark4); -->
+    <!-- let mark5=document.createElement('input'); -->
+    <!-- mark5.setAttribute('type','number'); -->
+    <!-- document.body.appendChild(mark5); -->
+    <!-- let result=document.querySelector('.result'); -->
+    <!-- function red(){ -->
+        <!-- let total=parseInt(mark1.value)+parseInt(mark2.value)+parseInt(mark3.value)+parseInt(mark4.value)+parseInt(mark5.value); -->
+        <!-- let average=total/5; -->
+        <!-- if(average>=95){ -->
+            <!-- document.write(`${average},your grade O`); -->
+        <!-- } -->
+        <!-- else if((average>=85) && (average<95)){ -->
+            <!-- document.write(`${average},your grade A`) -->
+
+        <!-- } -->
+        <!-- else if((average>75) && (average<85)){ -->
+            <!-- document.write(`${average},your grade B`) -->
+
+        <!-- } -->
+        <!-- else if((average>=60) && (average<75)){ -->
+            <!-- document.write(`${average},your grade C`) -->
+
+        <!-- } -->
+        <!-- else if((average>=40) && (average<60)){ -->
+            <!-- document.write(`${average},your grade D`) -->
+
+        <!-- } -->
+        <!-- else if(average<40){ -->
+            <!-- document.write(`${average},You Are Fail`) -->
+        <!-- } -->
+        <!-- else{ -->
+            <!-- document.write("enterb Your original Mark") -->
+        <!-- }    -->
+      <!-- } -->
+import React from 'react';
+import Child from './Child';
+
+const Parent =()=>{
+
+    const books =[
+        {'name':'Write for Evato tuts','duration':120},
+    {'name':'Work Out','duration':60},
+    {'name':'Procrastinate on Dulingo','duration':240}];
+//   let  books = [
+//         { name:"You Are Born to Blossom",year : 2011},
+//         { name:"Spirit of India",year :2013},
+//         { name:" Governance for Growth in India",year : 2014},
+//         { name:"The Family and the Nation",year :2015},
+//         { name:"  Mission of India",year :2005},
+//         { name:"Wings of fire",year : 1999},
+//         { name: "You are Unique:",year :2012}
+//         ]
+       let getbooks=(ssa)=>{
+        books.filter(function(s){
+            if(s.year<=ssa){
+                console.log(s.name);
+            }
+        })
+        }
+    return(
+        <div>
+            <Child Fil = {books} get ={getbooks}/>
+        </div>
+    )
+}
+export default Parent;
+
+
+
+
+
+
+
+
+
+
+
+import React from "react";
+
+
+const Child =(props)=>{
+   
+    let a =props.Fil;
+    
+    return(
+        <div>
+           {a.map(function(value,index){
+           
+            return (
+                <div add={index}>
+                <h1>{value.name} {value.year}</h1>
+                <button  onClick={() => props.get(value.year)}>click</button>
+                </div>
+            ) 
+            
+           })}
+        </div>
+    )
+}
+export default Child;
+    </script>
+</body>
+</html>
